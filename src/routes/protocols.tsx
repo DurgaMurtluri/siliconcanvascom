@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/SiteLayout";
+import { SectionArticles } from "@/components/SectionArticles";
 
 export const Route = createFileRoute("/protocols")({
   head: () => ({
@@ -53,6 +54,7 @@ function ProtocolsPage() {
           ))}
         </div>
       </section>
+      <SectionArticles section="protocols" />
     </SiteLayout>
   );
 }

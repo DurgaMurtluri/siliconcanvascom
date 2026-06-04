@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/SiteLayout";
+import { SectionArticles } from "@/components/SectionArticles";
 
 export const Route = createFileRoute("/dft")({
   head: () => ({
@@ -42,6 +43,7 @@ function DftPage() {
           ))}
         </div>
       </section>
+      <SectionArticles section="dft" />
     </SiteLayout>
   );
 }

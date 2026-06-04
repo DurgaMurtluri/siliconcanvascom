@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
 
 const links = [
   { to: "/roadmap", label: "Roadmap" },
@@ -15,6 +16,7 @@ const links = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const { isEditor } = useAuth();
   return (
     <nav className="sticky top-0 z-50 border-b border-white/5 bg-silicon-950/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -39,6 +41,11 @@ export function SiteNav() {
           ))}
         </div>
         <div className="flex items-center gap-3">
+          {isEditor && (
+            <Link to="/admin" className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 border border-electric-blue/40 text-electric-blue rounded-lg text-xs font-semibold">
+              <Shield className="size-3.5" /> Admin
+            </Link>
+          )}
           <Link
             to="/roadmap"
             className="hidden sm:inline-flex px-5 py-2.5 bg-electric-blue hover:bg-blue-600 text-white rounded-lg text-sm font-semibold transition-all shadow-lg shadow-electric-blue/20"
