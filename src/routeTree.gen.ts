@@ -9,8 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as UvmRouteImport } from './routes/uvm'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as RoadmapRouteImport } from './routes/roadmap'
+import { Route as ProtocolsRouteImport } from './routes/protocols'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as LearnRouteImport } from './routes/learn'
+import { Route as InterviewRouteImport } from './routes/interview'
+import { Route as DftRouteImport } from './routes/dft'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const UvmRoute = UvmRouteImport.update({
+  id: '/uvm',
+  path: '/uvm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoadmapRoute = RoadmapRouteImport.update({
+  id: '/roadmap',
+  path: '/roadmap',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProtocolsRoute = ProtocolsRouteImport.update({
+  id: '/protocols',
+  path: '/protocols',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InterviewRoute = InterviewRouteImport.update({
+  id: '/interview',
+  path: '/interview',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DftRoute = DftRouteImport.update({
+  id: '/dft',
+  path: '/dft',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +79,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRoute
+  '/dft': typeof DftRoute
+  '/interview': typeof InterviewRoute
+  '/learn': typeof LearnRoute
+  '/projects': typeof ProjectsRoute
+  '/protocols': typeof ProtocolsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/uvm': typeof UvmRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRoute
+  '/dft': typeof DftRoute
+  '/interview': typeof InterviewRoute
+  '/learn': typeof LearnRoute
+  '/projects': typeof ProjectsRoute
+  '/protocols': typeof ProtocolsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/uvm': typeof UvmRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRoute
+  '/dft': typeof DftRoute
+  '/interview': typeof InterviewRoute
+  '/learn': typeof LearnRoute
+  '/projects': typeof ProjectsRoute
+  '/protocols': typeof ProtocolsRoute
+  '/roadmap': typeof RoadmapRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/uvm': typeof UvmRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/dft'
+    | '/interview'
+    | '/learn'
+    | '/projects'
+    | '/protocols'
+    | '/roadmap'
+    | '/sitemap.xml'
+    | '/uvm'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/dft'
+    | '/interview'
+    | '/learn'
+    | '/projects'
+    | '/protocols'
+    | '/roadmap'
+    | '/sitemap.xml'
+    | '/uvm'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/dft'
+    | '/interview'
+    | '/learn'
+    | '/projects'
+    | '/protocols'
+    | '/roadmap'
+    | '/sitemap.xml'
+    | '/uvm'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogsRoute: typeof BlogsRoute
+  DftRoute: typeof DftRoute
+  InterviewRoute: typeof InterviewRoute
+  LearnRoute: typeof LearnRoute
+  ProjectsRoute: typeof ProjectsRoute
+  ProtocolsRoute: typeof ProtocolsRoute
+  RoadmapRoute: typeof RoadmapRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  UvmRoute: typeof UvmRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/uvm': {
+      id: '/uvm'
+      path: '/uvm'
+      fullPath: '/uvm'
+      preLoaderRoute: typeof UvmRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/roadmap': {
+      id: '/roadmap'
+      path: '/roadmap'
+      fullPath: '/roadmap'
+      preLoaderRoute: typeof RoadmapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/protocols': {
+      id: '/protocols'
+      path: '/protocols'
+      fullPath: '/protocols'
+      preLoaderRoute: typeof ProtocolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/interview': {
+      id: '/interview'
+      path: '/interview'
+      fullPath: '/interview'
+      preLoaderRoute: typeof InterviewRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dft': {
+      id: '/dft'
+      path: '/dft'
+      fullPath: '/dft'
+      preLoaderRoute: typeof DftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +257,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogsRoute: BlogsRoute,
+  DftRoute: DftRoute,
+  InterviewRoute: InterviewRoute,
+  LearnRoute: LearnRoute,
+  ProjectsRoute: ProjectsRoute,
+  ProtocolsRoute: ProtocolsRoute,
+  RoadmapRoute: RoadmapRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
+  UvmRoute: UvmRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
