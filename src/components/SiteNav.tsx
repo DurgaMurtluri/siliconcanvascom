@@ -16,6 +16,7 @@ const links = [
 
 export function SiteNav() {
   const [open, setOpen] = useState(false);
+  const { isEditor } = useAuth();
   return (
     <nav className="sticky top-0 z-50 border-b border-white/5 bg-silicon-950/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
