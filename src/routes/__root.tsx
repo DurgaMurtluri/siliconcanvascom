@@ -97,9 +97,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [ToasterComp, setToasterComp] = useState<any>(null);
+  useEffect(() => {
+    import("@/components/ui/sonner").then((m) => setToasterComp(() => m.Toaster));
+  }, []);
   return (
     <QueryClientProvider client={queryClient}>
       <Outlet />
+      {ToasterComp ? <ToasterComp /> : null}
     </QueryClientProvider>
   );
 }
