@@ -23,6 +23,8 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminQuestionsRouteImport } from './routes/admin.questions'
+import { Route as AdminArticlesRouteImport } from './routes/admin.articles'
 
 const UvmRoute = UvmRouteImport.update({
   id: '/uvm',
@@ -94,6 +96,16 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AdminRoute,
 } as any)
+const AdminQuestionsRoute = AdminQuestionsRouteImport.update({
+  id: '/questions',
+  path: '/questions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminArticlesRoute = AdminArticlesRouteImport.update({
+  id: '/articles',
+  path: '/articles',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -109,6 +121,8 @@ export interface FileRoutesByFullPath {
   '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uvm': typeof UvmRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/questions': typeof AdminQuestionsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRoutesByTo {
@@ -124,6 +138,8 @@ export interface FileRoutesByTo {
   '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uvm': typeof UvmRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/questions': typeof AdminQuestionsRoute
   '/admin': typeof AdminIndexRoute
 }
 export interface FileRoutesById {
@@ -141,6 +157,8 @@ export interface FileRoutesById {
   '/roadmap': typeof RoadmapRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/uvm': typeof UvmRoute
+  '/admin/articles': typeof AdminArticlesRoute
+  '/admin/questions': typeof AdminQuestionsRoute
   '/admin/': typeof AdminIndexRoute
 }
 export interface FileRouteTypes {
@@ -159,6 +177,8 @@ export interface FileRouteTypes {
     | '/roadmap'
     | '/sitemap.xml'
     | '/uvm'
+    | '/admin/articles'
+    | '/admin/questions'
     | '/admin/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -174,6 +194,8 @@ export interface FileRouteTypes {
     | '/roadmap'
     | '/sitemap.xml'
     | '/uvm'
+    | '/admin/articles'
+    | '/admin/questions'
     | '/admin'
   id:
     | '__root__'
@@ -190,6 +212,8 @@ export interface FileRouteTypes {
     | '/roadmap'
     | '/sitemap.xml'
     | '/uvm'
+    | '/admin/articles'
+    | '/admin/questions'
     | '/admin/'
   fileRoutesById: FileRoutesById
 }
@@ -309,14 +333,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof AdminRoute
     }
+    '/admin/questions': {
+      id: '/admin/questions'
+      path: '/questions'
+      fullPath: '/admin/questions'
+      preLoaderRoute: typeof AdminQuestionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/articles': {
+      id: '/admin/articles'
+      path: '/articles'
+      fullPath: '/admin/articles'
+      preLoaderRoute: typeof AdminArticlesRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
 
 interface AdminRouteChildren {
+  AdminArticlesRoute: typeof AdminArticlesRoute
+  AdminQuestionsRoute: typeof AdminQuestionsRoute
   AdminIndexRoute: typeof AdminIndexRoute
 }
 
 const AdminRouteChildren: AdminRouteChildren = {
+  AdminArticlesRoute: AdminArticlesRoute,
+  AdminQuestionsRoute: AdminQuestionsRoute,
   AdminIndexRoute: AdminIndexRoute,
 }
 
